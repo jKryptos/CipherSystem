@@ -7,11 +7,12 @@ public class Decryption {
     public Decryption(){
 
     }
-
+    public String decryptText(ArrayList<Character> cipherText){
+        return "";
+    }
     public void setCipherText(ArrayList<Character> text){
         this.cipherText = text;
     }
-
     public ArrayList<Character> getCipherText(){
         return this.cipherText;
     }

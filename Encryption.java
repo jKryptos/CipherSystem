@@ -7,12 +7,17 @@ public class Encryption {
     public Encryption(){
 
     }
+    public String encryptText(ArrayList<Character> plainText){
+        return "";
+    }
 
     public void setPlainText(ArrayList<Character> text){
+
         this.plainText = text;
     }
 
     public ArrayList<Character> getPlainText(){
+
         return this.plainText;
     }
 }

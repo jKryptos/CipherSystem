@@ -2,21 +2,19 @@ import java.util.Scanner;
 
 public class Main {
 
+    public static final String alphabet = "abcdefghijklmnopqrstuvwxyz";
+
     public static void main(String[] args) {
 
-        programStart();
-    }
-
-    public static void programStart(){
-
+        IOHandler ioHandler = new IOHandler();
         Key key = new Key();
-
-        System.out.println("What is your key? ");
+        Encryption encryption = new Encryption();
+        Decryption decryption = new Decryption();
         Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.nextLine();
-        key.setKey(userInput);
-        System.out.println("Your key is " + key.getKey());
-        key.eraseKey();
-        System.out.println("Your key is " + key.getKey());
+
+        System.out.println("Enter key:");
+        key.setKey(scanner.nextLine().toUpperCase());
+        scanner.close();
+        System.out.println("Your key has been set to: " + key.getKey() + "\nConverted to binary is: " + key.stringToBinaryCodeReturn(key.getKey()));
     }
 }
