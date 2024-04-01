@@ -1,6 +1,7 @@
 public class Key {
 
     private String keyWord;
+    private String binaryKey;
 
     public Key(){
 
@@ -26,8 +27,13 @@ public class Key {
                 binaryOutput.append((val & 128) == 0 ? 0 : 1);
                 val <<= 1;
             }
-            //binaryOutput.append(' ');
         }
         return binaryOutput.toString();
+    }
+    public void setBinaryKey(String binaryKey) {
+        this.binaryKey = binaryKey;
+    }
+    public String getBinaryKey(){
+        return this.binaryKey;
     }
 }

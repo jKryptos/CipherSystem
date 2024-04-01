@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Initialize all objects
         IOHandler ioHandler = new IOHandler();
         Key key = new Key();
         Alphabet alphabet = new Alphabet();
@@ -11,21 +12,24 @@ public class Main {
         Decryption decryption = new Decryption();
         Scanner scanner = new Scanner(System.in);
 
+        //Set default alphabets
         alphabet.setAlphabetZero("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         alphabet.setAlphabetOne("ZYXWVUTSRQPONMLKJIHGFEDCBA");
 
+        //Ask user for key
         System.out.println("Enter key:");
         key.setKey(scanner.nextLine().toUpperCase());
         scanner.close();
-        System.out.println("Your key has been set to: " + key.getKey() + "\nConverted to binary is: " + key.stringToBinaryCodeReturn(key.getKey()));
+        System.out.println("Your key has been set to: " + key.getKey());
+        //Convert key to binaryKey
+        key.setBinaryKey(key.stringToBinaryCodeReturn(key.getKey()));
+        //Set scrambled alphabets
+        alphabet.setScrambledAlphabetZero(alphabet.scrambleAlphabet(alphabet.getAlphabetZero()));
+        alphabet.setScrambledAlphabetOne(alphabet.scrambleAlphabet(alphabet.getAlphabetOne()));
 
-        String alphabetZero = alphabet.getAlphabetZero();
-        String alphabetOne = alphabet.getAlphabetOne();
-
-        for(int i = 0;i < 5;i++){
-            System.out.println(alphabet.scrambleAlphabet(alphabetZero));
-            System.out.println(alphabet.scrambleAlphabet(alphabetOne));
-            System.out.println(" ");
-        }
+        //Println for testing
+        System.out.println("Alphabet ZERO: " + alphabet.getScrambledAlphabetZero());
+        System.out.println("Alphabet ONE: " + alphabet.getScrambledAlphabetOne());
+        System.out.println("binaryKey: " + key.getBinaryKey());
     }
 }
