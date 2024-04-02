@@ -15,7 +15,8 @@ public class Main {
         //Set default alphabets
         alphabet.setAlphabetZero("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         alphabet.setAlphabetOne("ZYXWVUTSRQPONMLKJIHGFEDCBA");
-
+        //Set plainText
+        encryption.setPlainText("ThisIsATestPlaintextJackBauerIsNumberOne");
         //Ask user for key
         System.out.println("Enter key:");
         key.setKey(scanner.nextLine().toUpperCase());
@@ -26,10 +27,12 @@ public class Main {
         //Set scrambled alphabets
         alphabet.setScrambledAlphabetZero(alphabet.scrambleAlphabet(alphabet.getAlphabetZero()));
         alphabet.setScrambledAlphabetOne(alphabet.scrambleAlphabet(alphabet.getAlphabetOne()));
-
         //Println for testing
         System.out.println("Alphabet ZERO: " + alphabet.getScrambledAlphabetZero());
         System.out.println("Alphabet ONE: " + alphabet.getScrambledAlphabetOne());
         System.out.println("binaryKey: " + key.getBinaryKey());
+        System.out.println(encryption.getPlainText());
+        System.out.println(encryption.encryptText(encryption.getPlainText(), key.getBinaryKey()));
+
     }
 }

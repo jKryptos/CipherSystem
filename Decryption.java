@@ -1,19 +1,17 @@
-import java.util.ArrayList;
-
 public class Decryption {
 
-    ArrayList<Character> cipherText = new ArrayList<>();
+    private String cipherText;
 
     public Decryption(){
 
     }
-    public String decryptText(ArrayList<Character> cipherText){
+    public String decryptText(String cipherText){
         return "";
     }
-    public void setCipherText(ArrayList<Character> text){
-        this.cipherText = text;
+    public void setCipherText(String text){
+        this.cipherText = text.toUpperCase();
     }
-    public ArrayList<Character> getCipherText(){
+    public String getCipherText(){
         return this.cipherText;
     }
 }
