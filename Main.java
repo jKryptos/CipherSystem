@@ -32,7 +32,7 @@ public class Main {
         System.out.println("Alphabet ONE: " + alphabet.getScrambledAlphabetOne());
         System.out.println("binaryKey: " + key.getBinaryKey());
         System.out.println(encryption.getPlainText());
-        System.out.println(encryption.encryptText(encryption.getPlainText(), key.getBinaryKey()));
+        System.out.println(encryption.encryptText(encryption.getPlainText(), key.getBinaryKey(), alphabet.getAlphabetZero(), alphabet.getAlphabetOne()));
 
     }
 }
