@@ -2,7 +2,7 @@ public class Encryption {
 
     private String plainText;
 
-    final String normalAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public Encryption(){
 
@@ -11,8 +11,6 @@ public class Encryption {
     public String encryptText(String plainText, String binaryKey, String alphaZero, String alphaOne){
 
         char[] plainTextArray = plainText.toCharArray();
-        char[] alphaZeroArray = alphaZero.toCharArray();
-        char[] alphaOneArray = alphaOne.toCharArray();
 
         while (binaryKey.length() < plainTextArray.length){
             binaryKey += binaryKey;
@@ -21,14 +19,19 @@ public class Encryption {
 
         for(int i = 0; i < plainTextArray.length; i++){
             if (binaryKeyArray[i] == '0'){
-                plainTextArray[i] = alphaZeroArray[i];
+                int position = ALPHABET.indexOf(plainTextArray[i]);
+                char encryptChar = alphaZero.charAt(position);
+                plainTextArray[i] = encryptChar;
             }
-            if (binaryKeyArray[i] == '1') {
-                plainTextArray[i] = alphaOneArray[i];
+            else if (binaryKeyArray[i] == '1') {
+                int position = ALPHABET.indexOf(plainTextArray[i]);
+                char encryptChar = alphaOne.charAt(position);
+                plainTextArray[i] = encryptChar;
             }
         }
         return new String(plainTextArray);
     }
+
     public void setPlainText(String text){
         this.plainText = text.toUpperCase();
     }

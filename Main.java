@@ -16,7 +16,7 @@ public class Main {
         alphabet.setAlphabetZero("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         alphabet.setAlphabetOne("ZYXWVUTSRQPONMLKJIHGFEDCBA");
         //Set plainText
-        encryption.setPlainText("ThisIsATestPlaintextJackBauerIsNumberOne");
+        encryption.setPlainText("BEFOREHISFALLFROMGRACESEPHIROTHWASONEOFTHEMOSTLAUDEDSUCCESSSTORIESOFTHESHINRAELECTRICPOWERCOMPANYSSOLDIERPROGRAMHISACCOMPLISHMENTSINTHEFIELDOFBATTLEDURINGTHECONFLICTSSURROUNDINGSHINRASBIDFORGLOBALDOMINATIONLEDTOHISSTATUSASACELEBRITYWARHEROANDTHEPOSTERBOYFORBOTHTHESHINRAMILITARYANDTHECOMPANYSSOLDIERPROGRAMLEARNINGOFHISTRUEORIGINSDROVEHIMINSANEBEGETTINGACOMPULSIONTODESTROYTHEWORLDINHISMADPURSUITOFGODHOOD");
         //Ask user for key
         System.out.println("Enter key:");
         key.setKey(scanner.nextLine().toUpperCase());
@@ -32,7 +32,6 @@ public class Main {
         System.out.println("Alphabet ONE: " + alphabet.getScrambledAlphabetOne());
         System.out.println("binaryKey: " + key.getBinaryKey());
         System.out.println(encryption.getPlainText());
-        System.out.println(encryption.encryptText(encryption.getPlainText(), key.getBinaryKey(), alphabet.getAlphabetZero(), alphabet.getAlphabetOne()));
-
+        System.out.println(encryption.encryptText(encryption.getPlainText(), key.getBinaryKey(), alphabet.getScrambledAlphabetZero(), alphabet.getScrambledAlphabetOne()));
     }
 }
