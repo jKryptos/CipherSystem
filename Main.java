@@ -29,7 +29,7 @@ public class Main {
         alphabet.setScrambledAlphabetZero(alphabet.scrambleAlphabet(alphabet.getAlphabetZero()));
         alphabet.setScrambledAlphabetOne(alphabet.scrambleAlphabet(alphabet.getAlphabetOne()));
         System.out.println("Alphebet Zero: " + alphabet.getScrambledAlphabetZero()  + "\n" + "Alphabet One: " + alphabet.getScrambledAlphabetOne());
-
+        //Encryption/Decryption
         String encyrptedString = encryption.encryptText(encryption.getPlainText(), key.getBinaryKey(), alphabet.getScrambledAlphabetZero(), alphabet.getScrambledAlphabetOne());
         System.out.println(encyrptedString);
         System.out.println("Message encrypted.");
@@ -37,14 +37,5 @@ public class Main {
         System.out.println("Decrypting message...");
         System.out.println(decryptedString);
         System.out.println("Message decrypted.");
-
-
-        //Println for testing
-/*        System.out.println("Alphabet ZERO: " + alphabet.getScrambledAlphabetZero());
-        System.out.println("Alphabet ONE: " + alphabet.getScrambledAlphabetOne());
-        System.out.println("binaryKey: " + key.getBinaryKey());
-        System.out.println(encryption.getPlainText());
-        System.out.println(encryption.encryptText(encryption.getPlainText(), key.getBinaryKey(), alphabet.getScrambledAlphabetZero(), alphabet.getScrambledAlphabetOne()));*/
-
     }
 }
