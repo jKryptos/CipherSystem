@@ -7,7 +7,6 @@ public class Encryption {
     public Encryption(){
 
     }
-    //Need to implement a way to compare normal alphabet to random alphabets, currently broken because I'm comparing a 26 char alphabet to a longer plaintext
     public String encryptText(String plainText, String binaryKey, String alphaZero, String alphaOne){
 
         char[] plainTextArray = plainText.toCharArray();
