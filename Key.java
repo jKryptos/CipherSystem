@@ -16,7 +16,7 @@ public class Key {
         this.keyWord = null;
         System.out.println("Key erased!");
     }
-    public String stringToBinaryCodeReturn(String stringToConvert){
+    public String stringToBinaryCode(String stringToConvert){
 
         byte[] bytes = stringToConvert.getBytes();
         StringBuilder binaryOutput = new StringBuilder();
