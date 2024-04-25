@@ -16,21 +16,21 @@ public class Encryption {
         }
         char[] binaryKeyArray = binaryKey.toCharArray();
 
-        for(int i = 0; i < plainTextArray.length; i++){
-            if (binaryKeyArray[i] == '0'){
-                int position = ALPHABET.indexOf(plainTextArray[i]);
-                char encryptChar = alphaZero.charAt(position);
-                plainTextArray[i] = encryptChar;
-            }
-            else if (binaryKeyArray[i] == '1') {
-                int position = ALPHABET.indexOf(plainTextArray[i]);
-                char encryptChar = alphaOne.charAt(position);
-                plainTextArray[i] = encryptChar;
+        for (int i = 0; i < plainTextArray.length; i++) {
+            if (plainTextArray[i] != ' ') {
+                if (binaryKeyArray[i] == '0') {
+                    int position = ALPHABET.indexOf(plainTextArray[i]);
+                    char encryptChar = alphaZero.charAt(position);
+                    plainTextArray[i] = encryptChar;
+                } else if (binaryKeyArray[i] == '1') {
+                    int position = ALPHABET.indexOf(plainTextArray[i]);
+                    char encryptChar = alphaOne.charAt(position);
+                    plainTextArray[i] = encryptChar;
+                }
             }
         }
         return new String(plainTextArray);
     }
-
     public void setPlainText(String text){
         this.plainText = text.toUpperCase();
     }
