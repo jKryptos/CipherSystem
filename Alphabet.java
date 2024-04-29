@@ -6,6 +6,8 @@ public class Alphabet {
     private String alphabetOne;
     private String scrambledAlphabetZero;
     private String scrambledAlphabetOne;
+    private String[] alphaZeroArray;
+    private String[] alphaOneArray;
 
     public Alphabet(){
 
@@ -37,6 +39,39 @@ public class Alphabet {
     public String getScrambledAlphabetOne(){
         return this.scrambledAlphabetOne;
     }
+
+    public String[] alphabetZeroArraySetup() {
+        String[] alphabet = new String[26];
+
+        for(int i = 0; i < 26; i++){
+            alphabet[i] = (scrambleAlphabet(alphabetZero));
+        }
+        return alphabet;
+    }
+
+    public String[] alphabetOneArraySetup() {
+        String[] alphabet = new String[26];
+
+        for(int i = 0; i < 26; i++){
+            alphabet[i] = (scrambleAlphabet(alphabetOne));
+        }
+        return alphabet;
+    }
+
+    public void setAlphaZeroArray(String[] alphabetArray){
+        this.alphaZeroArray = alphabetArray;
+    }
+    public String[] getAlphaZeroArray(){
+        return this.alphaZeroArray;
+    }
+
+    public void setAlphaOneArray(String[] alphabetArray){
+        this.alphaOneArray = alphabetArray;
+    }
+    public String[] getAlphaOneArray(){
+        return this.alphaOneArray;
+    }
+
     public String scrambleAlphabet(String targetAlphabet){
 
         Random rand = new Random();

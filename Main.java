@@ -26,15 +26,15 @@ public class Main {
         System.out.println("Your key has been set to: " + key.getKey());
         //Convert key to binaryKey
         key.setBinaryKey(key.stringToBinaryCode(key.getKey()));
+        System.out.println("Binary representation of key: " + key.getBinaryKey());
         //Set scrambled alphabets
-        alphabet.setScrambledAlphabetZero(alphabet.scrambleAlphabet(alphabet.getAlphabetZero()));
-        alphabet.setScrambledAlphabetOne(alphabet.scrambleAlphabet(alphabet.getAlphabetOne()));
-        System.out.println("Alphebet Zero: " + alphabet.getScrambledAlphabetZero()  + "\n" + "Alphabet One: " + alphabet.getScrambledAlphabetOne());
+        alphabet.setAlphaZeroArray(alphabet.alphabetZeroArraySetup());
+        alphabet.setAlphaOneArray(alphabet.alphabetOneArraySetup());
         //Encryption/Decryption
-        String encyrptedString = encryption.encryptText(encryption.getPlainText(), key.getBinaryKey(), alphabet.getScrambledAlphabetZero(), alphabet.getScrambledAlphabetOne());
+        String encyrptedString = encryption.encryptText(encryption.getPlainText(), key.getBinaryKey(), alphabet.getAlphaZeroArray(), alphabet.getAlphaOneArray());
         System.out.println(encyrptedString);
         System.out.println("Message encrypted.");
-        String decryptedString = decryption.decryptText(encyrptedString, key.getBinaryKey(), alphabet.getScrambledAlphabetZero(), alphabet.getScrambledAlphabetOne());
+        String decryptedString = decryption.decryptText(encyrptedString, key.getBinaryKey(), alphabet.getAlphaZeroArray(), alphabet.getAlphaOneArray());
         System.out.println("Decrypting message...");
         System.out.println(decryptedString);
         System.out.println("Message decrypted.");
