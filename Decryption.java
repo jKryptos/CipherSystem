@@ -9,16 +9,13 @@ public class Decryption {
 
     }
     public String decryptText(String cipherText, String binaryKey, String[] alphaZero, String[] alphaOne) {
-
         char[] cipherTextArray = cipherText.toCharArray();
         int zeroCount = 0;
         int oneCount = 0;
-
         while (binaryKey.length() < cipherTextArray.length) {
             binaryKey += binaryKey;
         }
         char[] binaryKeyArray = binaryKey.toCharArray();
-
         for (int i = 0; i < cipherTextArray.length; i++) {
             if (binaryKeyArray[i] == '0' && cipherTextArray[i] != ' ') {
                 oneCount = 0;
@@ -26,7 +23,7 @@ public class Decryption {
                 char decryptedChar = ALPHABET.charAt(position);
                 cipherTextArray[i] = decryptedChar;
                 zeroCount++;
-                if (zeroCount == VALUE_TO_SHIFT_AT){
+                if (zeroCount >= VALUE_TO_SHIFT_AT){
                     alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
                 }
             } else if (binaryKeyArray[i] == '1' && cipherTextArray[i] != ' ') {
@@ -35,7 +32,7 @@ public class Decryption {
                 char decryptedChar = ALPHABET.charAt(position);
                 cipherTextArray[i] = decryptedChar;
                 oneCount++;
-                if (oneCount == VALUE_TO_SHIFT_AT){
+                if (oneCount >= VALUE_TO_SHIFT_AT){
                     alphaOne = Alphabet.arrayIndexShift(alphaOne, SHIFT_VALUE);
                 }
             }

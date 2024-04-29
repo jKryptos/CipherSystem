@@ -9,16 +9,13 @@ public class Encryption {
 
     }
     public String encryptText(String plainText, String binaryKey, String[] alphaZero, String[] alphaOne){
-
         char[] plainTextArray = plainText.toCharArray();
         int zeroCount = 0;
         int oneCount = 0;
-
         while (binaryKey.length() < plainTextArray.length){
             binaryKey += binaryKey;
         }
         char[] binaryKeyArray = binaryKey.toCharArray();
-
         for (int i = 0; i < plainTextArray.length; i++) {
             if (binaryKeyArray[i] == '0' && plainTextArray[i] != ' ') {
                 oneCount = 0;
@@ -26,7 +23,7 @@ public class Encryption {
                 char encryptChar = getCharFromArray(alphaZero, position, zeroCount);
                 plainTextArray[i] = encryptChar;
                 zeroCount++;
-                if (zeroCount == VALUE_TO_SHIFT_AT){
+                if (zeroCount >= VALUE_TO_SHIFT_AT){
                     alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
                 }
             } else if (binaryKeyArray[i] == '1' && plainTextArray[i] != ' ') {
@@ -35,7 +32,7 @@ public class Encryption {
                 char encryptChar = getCharFromArray(alphaOne, position, oneCount);
                 plainTextArray[i] = encryptChar;
                 oneCount++;
-                if (oneCount == VALUE_TO_SHIFT_AT){
+                if (oneCount >= VALUE_TO_SHIFT_AT){
                     alphaOne = Alphabet.arrayIndexShift(alphaOne, SHIFT_VALUE);
                 }
             }
