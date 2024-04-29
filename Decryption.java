@@ -20,8 +20,7 @@ public class Decryption {
         char[] binaryKeyArray = binaryKey.toCharArray();
 
         for (int i = 0; i < cipherTextArray.length; i++) {
-            if (cipherTextArray[i] != ' ') {
-                if (binaryKeyArray[i] == '0') {
+                if (binaryKeyArray[i] == '0' && cipherTextArray[i] != ' ') {
                     oneCount = 0;
                     int position = alphaZero[zeroCount].indexOf(cipherTextArray[i]);
                     char decryptedChar = ALPHABET.charAt(position);
@@ -30,7 +29,7 @@ public class Decryption {
                         if (zeroCount == VALUE_TO_SHIFT_AT){
                             alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
                     }
-                } else if (binaryKeyArray[i] == '1') {
+                } else if (binaryKeyArray[i] == '1' && cipherTextArray[i] != ' ') {
                     zeroCount = 0;
                     int position = alphaOne[oneCount].indexOf(cipherTextArray[i]);
                     char decryptedChar = ALPHABET.charAt(position);
@@ -38,7 +37,6 @@ public class Decryption {
                     oneCount++;
                         if (oneCount == VALUE_TO_SHIFT_AT){
                             alphaOne = Alphabet.arrayIndexShift(alphaOne, SHIFT_VALUE);
-                    }
                 }
             }
         }
