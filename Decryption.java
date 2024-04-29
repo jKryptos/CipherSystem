@@ -28,7 +28,7 @@ public class Decryption {
                     zeroCount++;
                         if (zeroCount == VALUE_TO_SHIFT_AT){
                             alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
-                    }
+                        }
                 } else if (binaryKeyArray[i] == '1' && cipherTextArray[i] != ' ') {
                     zeroCount = 0;
                     int position = alphaOne[oneCount].indexOf(cipherTextArray[i]);

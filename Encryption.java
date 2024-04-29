@@ -26,8 +26,8 @@ public class Encryption {
                     char encryptChar = getCharFromArray(alphaZero, position, zeroCount);
                     plainTextArray[i] = encryptChar;
                     zeroCount++;
-                    if (zeroCount == VALUE_TO_SHIFT_AT){
-                        alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
+                        if (zeroCount == VALUE_TO_SHIFT_AT){
+                            alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
                         }
                 } else if (binaryKeyArray[i] == '1' && plainTextArray[i] != ' ') {
                     zeroCount = 0;
