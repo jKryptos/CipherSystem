@@ -20,23 +20,23 @@ public class Encryption {
         char[] binaryKeyArray = binaryKey.toCharArray();
 
         for (int i = 0; i < plainTextArray.length; i++) {
-                if (binaryKeyArray[i] == '0' && plainTextArray[i] != ' ') {
-                    oneCount = 0;
-                    int position = ALPHABET.indexOf(plainTextArray[i]);
-                    char encryptChar = getCharFromArray(alphaZero, position, zeroCount);
-                    plainTextArray[i] = encryptChar;
-                    zeroCount++;
-                        if (zeroCount == VALUE_TO_SHIFT_AT){
-                            alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
-                        }
-                } else if (binaryKeyArray[i] == '1' && plainTextArray[i] != ' ') {
-                    zeroCount = 0;
-                    int position = ALPHABET.indexOf(plainTextArray[i]);
-                    char encryptChar = getCharFromArray(alphaOne, position, oneCount);
-                    plainTextArray[i] = encryptChar;
-                    oneCount++;
-                        if (oneCount == VALUE_TO_SHIFT_AT){
-                            alphaOne = Alphabet.arrayIndexShift(alphaOne, SHIFT_VALUE);
+            if (binaryKeyArray[i] == '0' && plainTextArray[i] != ' ') {
+                oneCount = 0;
+                int position = ALPHABET.indexOf(plainTextArray[i]);
+                char encryptChar = getCharFromArray(alphaZero, position, zeroCount);
+                plainTextArray[i] = encryptChar;
+                zeroCount++;
+                if (zeroCount == VALUE_TO_SHIFT_AT){
+                    alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
+                }
+            } else if (binaryKeyArray[i] == '1' && plainTextArray[i] != ' ') {
+                zeroCount = 0;
+                int position = ALPHABET.indexOf(plainTextArray[i]);
+                char encryptChar = getCharFromArray(alphaOne, position, oneCount);
+                plainTextArray[i] = encryptChar;
+                oneCount++;
+                if (oneCount == VALUE_TO_SHIFT_AT){
+                    alphaOne = Alphabet.arrayIndexShift(alphaOne, SHIFT_VALUE);
                 }
             }
         }
