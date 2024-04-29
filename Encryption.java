@@ -27,7 +27,7 @@ public class Encryption {
                     plainTextArray[i] = encryptChar;
                     zeroCount++;
                        if (zeroCount == VALUE_TO_SHIFT_AT){
-                            alphaZero = arrayIndexShift(alphaZero, SHIFT_VALUE);
+                            alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
                         }
                 } else if (binaryKeyArray[i] == '1' && plainTextArray[i] != ' ') {
                     zeroCount = 0;
@@ -36,7 +36,7 @@ public class Encryption {
                     plainTextArray[i] = encryptChar;
                     oneCount++;
                       if (oneCount == VALUE_TO_SHIFT_AT){
-                            alphaOne = arrayIndexShift(alphaOne, SHIFT_VALUE);
+                            alphaOne = Alphabet.arrayIndexShift(alphaOne, SHIFT_VALUE);
                         }
                 }
         }
@@ -49,22 +49,6 @@ public class Encryption {
 
         return character;
     }
-
-    public String[] arrayIndexShift(String[] arrayToShift, int shiftCount) {
-
-        String[] temp = new String[26];
-
-        for (int j = 0; j < shiftCount; j++) {
-            String tempString = arrayToShift[0];
-
-            for (int i = 0; i < arrayToShift.length; i++) {
-                temp[i] = arrayToShift[(i + 1) % 26];
-            }
-            temp[25] = tempString;
-        }
-        return temp;
-    }
-
 
     public void setPlainText(String text){
         this.plainText = text.toUpperCase();

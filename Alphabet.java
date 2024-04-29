@@ -70,5 +70,20 @@ public class Alphabet {
         }
         return new String(alphabet);
     }
+
+    public static String[] arrayIndexShift(String[] arrayToShift, int shiftCount) {
+
+        String[] temp = new String[26];
+
+        for (int j = 0; j < shiftCount; j++) {
+            String tempString = arrayToShift[0];
+
+            for (int i = 0; i < arrayToShift.length; i++) {
+                temp[i] = arrayToShift[(i + 1) % 26];
+            }
+            temp[25] = tempString;
+        }
+        return temp;
+    }
 }
 
