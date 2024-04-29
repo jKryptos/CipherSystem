@@ -4,8 +4,6 @@ public class Alphabet {
 
     private String alphabetZero;
     private String alphabetOne;
-    private String scrambledAlphabetZero;
-    private String scrambledAlphabetOne;
     private String[] alphaZeroArray;
     private String[] alphaOneArray;
 
@@ -24,20 +22,6 @@ public class Alphabet {
     }
     public String getAlphabetOne(){
         return this.alphabetOne;
-    }
-
-    public void setScrambledAlphabetZero(String alphabetZero){
-        this.scrambledAlphabetZero = alphabetZero;
-    }
-    public String getScrambledAlphabetZero(){
-        return this.scrambledAlphabetZero;
-    }
-
-    public void setScrambledAlphabetOne(String alphabetOne){
-        this.scrambledAlphabetOne = alphabetOne;
-    }
-    public String getScrambledAlphabetOne(){
-        return this.scrambledAlphabetOne;
     }
 
     public String[] alphabetZeroArraySetup() {

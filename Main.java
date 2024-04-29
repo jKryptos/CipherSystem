@@ -28,7 +28,7 @@ public class Main {
         //Convert key to binaryKey
         key.setBinaryKey(key.stringToBinaryCode(key.getKey()));
         System.out.println("Binary representation of key: " + key.getBinaryKey());
-        //Set scrambled alphabets
+        //Set scrambled alphabetArrays
         alphabet.setAlphaZeroArray(alphabet.alphabetZeroArraySetup());
         alphabet.setAlphaOneArray(alphabet.alphabetOneArraySetup());
         //Encryption/Decryption

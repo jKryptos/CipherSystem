@@ -19,17 +19,4 @@ public class IOHandler {
             }
         return text;
     }
-
-/*    public String outgoingTextFile() throws IOException {
-        String text = "";
-            try{
-
-
-
-
-            } catch (IOException ioe) {
-                System.out.println("Could not save to file.");
-            }
-        return null;
-    }*/
 }
