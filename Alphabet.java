@@ -2,6 +2,7 @@ import java.util.Random;
 
 public class Alphabet {
 
+    final static String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private String alphabetZero;
     private String alphabetOne;
     private String[] alphaZeroArray;

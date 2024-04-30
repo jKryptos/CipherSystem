@@ -1,7 +1,6 @@
 public class Encryption {
 
     private String plainText;
-    final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     final int VALUE_TO_SHIFT_AT = 2;
     final int SHIFT_VALUE = 7;
 
@@ -19,7 +18,7 @@ public class Encryption {
         for (int i = 0; i < plainTextArray.length; i++) {
             if (binaryKeyArray[i] == '0' && plainTextArray[i] != ' ') {
                 oneCount = 0;
-                int position = ALPHABET.indexOf(plainTextArray[i]);
+                int position = Alphabet.ALPHABET.indexOf(plainTextArray[i]);
                 char encryptChar = getCharFromArray(alphaZero, position, zeroCount);
                 plainTextArray[i] = encryptChar;
                 zeroCount++;
@@ -28,7 +27,7 @@ public class Encryption {
                 }
             } else if (binaryKeyArray[i] == '1' && plainTextArray[i] != ' ') {
                 zeroCount = 0;
-                int position = ALPHABET.indexOf(plainTextArray[i]);
+                int position = Alphabet.ALPHABET.indexOf(plainTextArray[i]);
                 char encryptChar = getCharFromArray(alphaOne, position, oneCount);
                 plainTextArray[i] = encryptChar;
                 oneCount++;

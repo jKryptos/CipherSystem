@@ -1,7 +1,6 @@
 public class Decryption {
 
     private String cipherText;
-    final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     final int VALUE_TO_SHIFT_AT = 2;
     final int SHIFT_VALUE = 7;
 
@@ -20,7 +19,7 @@ public class Decryption {
             if (binaryKeyArray[i] == '0' && cipherTextArray[i] != ' ') {
                 oneCount = 0;
                 int position = alphaZero[zeroCount].indexOf(cipherTextArray[i]);
-                char decryptedChar = ALPHABET.charAt(position);
+                char decryptedChar = Alphabet.ALPHABET.charAt(position);
                 cipherTextArray[i] = decryptedChar;
                 zeroCount++;
                 if (zeroCount >= VALUE_TO_SHIFT_AT){
@@ -29,7 +28,7 @@ public class Decryption {
             } else if (binaryKeyArray[i] == '1' && cipherTextArray[i] != ' ') {
                 zeroCount = 0;
                 int position = alphaOne[oneCount].indexOf(cipherTextArray[i]);
-                char decryptedChar = ALPHABET.charAt(position);
+                char decryptedChar = Alphabet.ALPHABET.charAt(position);
                 cipherTextArray[i] = decryptedChar;
                 oneCount++;
                 if (oneCount >= VALUE_TO_SHIFT_AT){

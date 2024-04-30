@@ -18,7 +18,7 @@ public class Main {
         alphabet.setAlphabetOne("ZYXWVUTSRQPONMLKJIHGFEDCBA");
         //Set plainText
         encryption.setPlainText(ioHandler.incomingTextFile().toUpperCase());
-        System.out.println("This is your message: " + encryption.getPlainText());
+        System.out.println("This is your message: \n" + encryption.getPlainText());
         //Ask user for key
         System.out.println("Enter key:");
         key.setKey(scanner.nextLine().toUpperCase());
@@ -33,10 +33,24 @@ public class Main {
         //Encryption/Decryption
         String encyrptedString = encryption.encryptText(encryption.getPlainText(), key.getBinaryKey(), alphabet.getAlphaZeroArray(), alphabet.getAlphaOneArray());
         System.out.println(encyrptedString);
-        System.out.println("Message encrypted.");
+        System.out.println("Message encrypted.\n");
         String decryptedString = decryption.decryptText(encyrptedString, key.getBinaryKey(), alphabet.getAlphaZeroArray(), alphabet.getAlphaOneArray());
         System.out.println("Decrypting message...");
         System.out.println(decryptedString);
-        System.out.println("Message decrypted.");
+        System.out.println("Message decrypted.\n");
+        System.out.println("Alphabet arrays used: ");
+
+        String[] zero = alphabet.getAlphaZeroArray();
+        String[] one = alphabet.getAlphaOneArray();
+
+        System.out.println("Zero Arrays: ");
+        for (int i = 0; i < zero.length;i++){
+            System.out.println(i + " " + zero[i]);
+        }
+        System.out.println(" ");
+        System.out.println("One Arrays: ");
+        for(int i = 0; i < one.length;i++){
+            System.out.println(i + " " + one[i]);
+        }
     }
 }
