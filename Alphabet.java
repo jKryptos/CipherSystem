@@ -93,12 +93,20 @@ public class Alphabet {
 
         System.out.println("Zero Arrays: ");
         for (int i = 0; i < zero.length;i++){
-            System.out.println(i + " " + zero[i]);
+            if(i <= 9){
+                System.out.println(i + "  " + zero[i]);
+            } else {
+                System.out.println(i + " " + zero[i]);
+            }
         }
         System.out.println(" ");
         System.out.println("One Arrays: ");
         for(int i = 0; i < one.length;i++){
-            System.out.println(i + " " + one[i]);
+            if(i <= 9){
+                System.out.println(i + "  " + one[i]);
+            } else {
+                System.out.println(i + " " + one[i]);
+            }
         }
     }
 }
