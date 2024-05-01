@@ -86,5 +86,20 @@ public class Alphabet {
         }
         return temp;
     }
+
+    public void printAlphabetArrays() {
+        String[] zero = getAlphaZeroArray();
+        String[] one = getAlphaOneArray();
+
+        System.out.println("Zero Arrays: ");
+        for (int i = 0; i < zero.length;i++){
+            System.out.println(i + " " + zero[i]);
+        }
+        System.out.println(" ");
+        System.out.println("One Arrays: ");
+        for(int i = 0; i < one.length;i++){
+            System.out.println(i + " " + one[i]);
+        }
+    }
 }
 

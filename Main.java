@@ -39,18 +39,6 @@ public class Main {
         System.out.println(decryptedString);
         System.out.println("Message decrypted.\n");
         System.out.println("Alphabet arrays used: ");
-
-        String[] zero = alphabet.getAlphaZeroArray();
-        String[] one = alphabet.getAlphaOneArray();
-
-        System.out.println("Zero Arrays: ");
-        for (int i = 0; i < zero.length;i++){
-            System.out.println(i + " " + zero[i]);
-        }
-        System.out.println(" ");
-        System.out.println("One Arrays: ");
-        for(int i = 0; i < one.length;i++){
-            System.out.println(i + " " + one[i]);
-        }
+        alphabet.printAlphabetArrays();
     }
 }
