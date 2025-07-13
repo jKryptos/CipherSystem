@@ -91,7 +91,7 @@ public class Alphabet {
         String[] zero = getAlphaZeroArray();
         String[] one = getAlphaOneArray();
 
-        System.out.println("Zero Arrays: ");
+        System.out.println("Zero Array: ");
         for (int i = 0; i < zero.length;i++){
             if(i <= 9){
                 System.out.println(i + "  " + zero[i]);
@@ -100,7 +100,7 @@ public class Alphabet {
             }
         }
         System.out.println(" ");
-        System.out.println("One Arrays: ");
+        System.out.println("One Array: ");
         for(int i = 0; i < one.length;i++){
             if(i <= 9){
                 System.out.println(i + "  " + one[i]);

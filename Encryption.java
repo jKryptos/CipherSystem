@@ -1,12 +1,13 @@
 public class Encryption {
 
     private String plainText;
-    final int VALUE_TO_SHIFT_AT = 2;
+    final int VALUE_TO_SHIFT_AT = 1;
     final int SHIFT_VALUE = 7;
 
     public Encryption(){
 
     }
+
     public String encryptText(String plainText, String binaryKey, String[] alphaZero, String[] alphaOne){
         char[] plainTextArray = plainText.toCharArray();
         int zeroCount = 0;
@@ -44,12 +45,5 @@ public class Encryption {
         character = alphabetArray[counter].charAt(position);
 
         return character;
-    }
-
-    public void setPlainText(String text){
-        this.plainText = text.toUpperCase();
-    }
-    public String getPlainText(){
-        return this.plainText;
     }
 }

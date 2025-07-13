@@ -8,6 +8,10 @@ public class IOHandler {
             try{
                 StringBuilder stringBuilder = new StringBuilder();
                 String line = loadFile.readLine();
+                if (line.equals("\n")){
+                    line.replace("\n","");
+                    System.out.println(" ");
+                }
 
                 while(line != null){
                     stringBuilder.append(line);

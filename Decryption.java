@@ -1,12 +1,13 @@
 public class Decryption {
 
     private String cipherText;
-    final int VALUE_TO_SHIFT_AT = 2;
+    final int VALUE_TO_SHIFT_AT = 1;
     final int SHIFT_VALUE = 7;
 
     public Decryption(){
 
     }
+
     public String decryptText(String cipherText, String binaryKey, String[] alphaZero, String[] alphaOne) {
         char[] cipherTextArray = cipherText.toCharArray();
         int zeroCount = 0;
