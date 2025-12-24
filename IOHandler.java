@@ -2,25 +2,20 @@ import java.io.*;
 
 public class IOHandler {
 
-    public String incomingTextFile() throws FileNotFoundException {
+    public String incomingTextFile(String textFileName) {
         String text = "";
-        BufferedReader loadFile = new BufferedReader(new FileReader("plaintext.txt"));
-            try{
-                StringBuilder stringBuilder = new StringBuilder();
-                String line = loadFile.readLine();
-                if (line.equals("\n")){
-                    line.replace("\n","");
-                    System.out.println(" ");
-                }
+        try (BufferedReader loadFile = new BufferedReader(new FileReader(textFileName))){
 
+            StringBuilder stringBuilder = new StringBuilder();
+            String line = loadFile.readLine();
                 while(line != null){
                     stringBuilder.append(line);
                     line = loadFile.readLine();
                 }
                 text = stringBuilder.toString();
-            } catch (IOException e) {
-                System.out.println("Could not load from file.");
-            }
+        } catch (IOException e){
+            return null;
+        }
         return text;
     }
 }

@@ -13,8 +13,9 @@ public class Key {
         return this.keyWord;
     }
     public void eraseKey(){
-        this.keyWord = null;
-        System.out.println("Key erased!");
+        this.keyWord = "";
+        this.binaryKey = "";
+
     }
     public String stringToBinaryCode(String stringToConvert){
 

@@ -27,7 +27,9 @@ public class Alphabet {
 
     public String[] alphabetZeroArraySetup() {
         String[] alphabet = new String[26];
-
+        if (alphabetZero == null){
+            setAlphabetZero("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        }
         for(int i = 0; i < 26; i++){
             alphabet[i] = (scrambleAlphabet(alphabetZero));
         }
@@ -36,7 +38,9 @@ public class Alphabet {
 
     public String[] alphabetOneArraySetup() {
         String[] alphabet = new String[26];
-
+        if(alphabetOne == null){
+            setAlphabetOne("ZYXWVUTSRQPONMLKJIHGFEDCBA");
+        }
         for(int i = 0; i < 26; i++){
             alphabet[i] = (scrambleAlphabet(alphabetOne));
         }
@@ -55,6 +59,13 @@ public class Alphabet {
     }
     public String[] getAlphaOneArray(){
         return this.alphaOneArray;
+    }
+
+    public void resetAlphabetArrays(){
+        String[] aZero = new String[26];
+        String[] aOne = new String[26];
+        setAlphaZeroArray(aZero);
+        setAlphaOneArray(aOne);
     }
 
     public String scrambleAlphabet(String targetAlphabet){
