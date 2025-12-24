@@ -2,6 +2,7 @@
 ***Not for real security implementations***
 
 Poly-alphabetic Substitution cipher.
+
 IOC around 0.03875
 
 Scramble 52 alphabets(26 AlphabetZeros and 26 AlphabetOnes), Choose between them with a keyword/phrase converted to binary code to perform letter substitutions.
