@@ -16,9 +16,6 @@ public class Message {
         return this.plaintext;
     }
 
-    public void printPlaintextWithNewLines(){
-
-    }
 
     public void setCiphertext(String ciphertext){
         this.ciphertext = ciphertext.toUpperCase();
@@ -28,9 +25,6 @@ public class Message {
         return this.ciphertext;
     }
 
-    public void printCipherTextWithNewLines(){
-
-    }
 
     public void setDecryptedText(String decryptedText){
         this.decryptedText = decryptedText.toUpperCase();
@@ -38,6 +32,24 @@ public class Message {
 
     public String getDecryptedText(){
         return this.decryptedText;
+    }
+
+    public StringBuilder printTextWithNewLines(String textToFormat){
+        String[] wordsInText = textToFormat.trim().split("\\s+");
+        StringBuilder newParagraph = new StringBuilder();
+        int wordCount = 0;
+        for (String s : wordsInText) {
+            if(wordCount > 0){
+                newParagraph.append(" ");
+            }
+            newParagraph.append(s);
+            wordCount++;
+            if (wordCount == 15) {
+                newParagraph.append(System.lineSeparator());
+                wordCount = 0;
+            }
+        }
+        return newParagraph;
     }
 
     public void erasePlaintext(){

@@ -43,6 +43,7 @@ public class Decryption {
         public void setCipherText(String text){
             this.cipherText = text.toUpperCase();
         }
+
         public String getCipherText () {
             return this.cipherText;
         }

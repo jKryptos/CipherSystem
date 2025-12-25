@@ -200,13 +200,14 @@ public class UI {
                     }
                     break;
                 case 2:
-                    System.out.println(message.getPlaintext());
+                    System.out.println(message.printTextWithNewLines(message.getPlaintext()));
                     break;
                 case 3:
-                    System.out.println(message.getCiphertext());
+                    System.out.println(message.printTextWithNewLines(message.getCiphertext()));
                     break;
                 case 4:
-                    System.out.println(message.getDecryptedText());
+                    System.out.println(message.printTextWithNewLines(message.getDecryptedText()));
+                    break;
                 case 5:
                     message.erasePlaintext();
                     break;
