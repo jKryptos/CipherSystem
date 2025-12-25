@@ -1,9 +1,5 @@
 public class Decryption {
 
-    private String cipherText;
-    final int VALUE_TO_SHIFT_AT = 1;
-    final int SHIFT_VALUE = 7;
-
     public Decryption(){
 
     }
@@ -23,8 +19,8 @@ public class Decryption {
                 char decryptedChar = Alphabet.ALPHABET.charAt(position);
                 cipherTextArray[i] = decryptedChar;
                 zeroCount++;
-                if (zeroCount >= VALUE_TO_SHIFT_AT){
-                    alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
+                if (zeroCount >= Constants.VALUE_TO_SHIFT_AT){
+                    alphaZero = Alphabet.arrayIndexShift(alphaZero, Constants.SHIFT_VALUE);
                 }
             } else if (binaryKeyArray[i] == '1' && cipherTextArray[i] != ' ') {
                 zeroCount = 0;
@@ -32,19 +28,11 @@ public class Decryption {
                 char decryptedChar = Alphabet.ALPHABET.charAt(position);
                 cipherTextArray[i] = decryptedChar;
                 oneCount++;
-                if (oneCount >= VALUE_TO_SHIFT_AT){
-                    alphaOne = Alphabet.arrayIndexShift(alphaOne, SHIFT_VALUE);
+                if (oneCount >= Constants.VALUE_TO_SHIFT_AT){
+                    alphaOne = Alphabet.arrayIndexShift(alphaOne, Constants.SHIFT_VALUE);
                 }
             }
         }
         return new String(cipherTextArray);
     }
-
-        public void setCipherText(String text){
-            this.cipherText = text.toUpperCase();
-        }
-
-        public String getCipherText () {
-            return this.cipherText;
-        }
-    }
+}

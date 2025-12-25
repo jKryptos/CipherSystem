@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class UI {
 
-    static final int DEFAULT_AMOUNT_ZERO = 0;
     private final Encryption encryption;
     private final Decryption decryption;
     private final Message message;
@@ -28,7 +27,7 @@ public class UI {
 
     public int userInputInteger(){
         boolean validInput = false;
-        int userInput = DEFAULT_AMOUNT_ZERO;
+        int userInput = Constants.DEFAULT_AMOUNT_ZERO;
 
         do{
             try {
