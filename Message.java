@@ -44,7 +44,7 @@ public class Message {
             }
             newParagraph.append(s);
             wordCount++;
-            if (wordCount == 15) {
+            if (wordCount == Constants.WHEN_TO_MAKE_NEW_LINE) {
                 newParagraph.append(System.lineSeparator());
                 wordCount = 0;
             }
