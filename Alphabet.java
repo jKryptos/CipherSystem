@@ -27,7 +27,7 @@ public class Alphabet {
 
     public String[] alphabetZeroArraySetup() {
         String[] alphabet = new String[26];
-        if (alphabetZero == null){
+        if (alphabetZero == null || alphabetZero.isEmpty()){
             setAlphabetZero("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         }
         for(int i = 0; i < 26; i++){
@@ -38,7 +38,7 @@ public class Alphabet {
 
     public String[] alphabetOneArraySetup() {
         String[] alphabet = new String[26];
-        if(alphabetOne == null){
+        if(alphabetOne == null || alphabetOne.isEmpty()){
             setAlphabetOne("ZYXWVUTSRQPONMLKJIHGFEDCBA");
         }
         for(int i = 0; i < 26; i++){
@@ -61,7 +61,7 @@ public class Alphabet {
         return this.alphaOneArray;
     }
 
-    public void resetAlphabetArrays(){
+    public void nullAlphabetArrays(){
         String[] aZero = new String[26];
         String[] aOne = new String[26];
         setAlphaZeroArray(aZero);
@@ -91,10 +91,10 @@ public class Alphabet {
         for (int j = 0; j < shiftCount; j++) {
             String tempString = temp[0];
 
-            for (int i = 0; i < temp.length; i++) {
-                temp[i] = temp[(i + 1) % temp.length];
+            for (int i = 0; i < temp.length - 1; i++) {
+                temp[i] = temp[(i + 1)];
             }
-            temp[25] = tempString;
+            temp[temp.length - 1] = tempString;
         }
         return temp;
     }

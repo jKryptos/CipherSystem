@@ -134,7 +134,7 @@ public class UI {
                     alphabet.setAlphabetOne("");
                     break;
                 case 8:
-                    alphabet.resetAlphabetArrays();
+                    alphabet.nullAlphabetArrays();
                     break;
                 case 0:
                     return;
