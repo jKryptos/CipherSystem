@@ -4,6 +4,8 @@ public class Message {
     private String ciphertext = "";
     private String decryptedText = "";
 
+    static final int WHEN_TO_MAKE_NEW_LINE = 20;
+
     public Message(){
 
     }
@@ -44,7 +46,7 @@ public class Message {
             }
             newParagraph.append(s);
             wordCount++;
-            if (wordCount == Constants.WHEN_TO_MAKE_NEW_LINE) {
+            if (wordCount == WHEN_TO_MAKE_NEW_LINE) {
                 newParagraph.append(System.lineSeparator());
                 wordCount = 0;
             }

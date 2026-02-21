@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class UI {
 
-    private final Encryption encryption;
-    private final Decryption decryption;
+    private final CipherMachine cipherMachine;
     private final Message message;
     private final Alphabet alphabet;
     private final Key key;
@@ -11,9 +10,8 @@ public class UI {
     private final IOHandler ioHandler;
 
 
-    public UI(Encryption encryption, Decryption decryption, Message message, Alphabet alphabet, Key key, Scanner scanner, IOHandler ioHandler){
-        this.encryption = encryption;
-        this.decryption = decryption;
+    public UI(CipherMachine cipherMachine, Message message, Alphabet alphabet, Key key, Scanner scanner, IOHandler ioHandler){
+        this.cipherMachine = cipherMachine;
         this.message = message;
         this.alphabet = alphabet;
         this.key = key;
@@ -49,11 +47,11 @@ public class UI {
 
             switch (userChoice){
                 case 1:
-                    message.setCiphertext(encryption.encryptText(message.getPlaintext(), key.getBinaryKey(), alphabet.getAlphaZeroArray(), alphabet.getAlphaOneArray()));
+                    message.setCiphertext(cipherMachine.encryptText(message.getPlaintext(), key.getBinaryKey(), alphabet.getAlphaZeroArray(), alphabet.getAlphaOneArray()));
                     System.out.println("Message encrypted");
                     break;
                 case 2:
-                    message.setDecryptedText(decryption.decryptText(message.getCiphertext(), key.getBinaryKey(), alphabet.getAlphaZeroArray(), alphabet.getAlphaOneArray()));
+                    message.setDecryptedText(cipherMachine.decryptText(message.getCiphertext(), key.getBinaryKey(), alphabet.getAlphaZeroArray(), alphabet.getAlphaOneArray()));
                     System.out.println("Message decrypted");
                     break;
                 case 3:
