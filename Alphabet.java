@@ -85,13 +85,14 @@ public class Alphabet {
 
     public static String[] arrayIndexShift(String[] arrayToShift, int shiftCount) {
 
-        String[] temp = new String[26];
+        String[] temp;
+        temp = arrayToShift.clone();
 
         for (int j = 0; j < shiftCount; j++) {
-            String tempString = arrayToShift[0];
+            String tempString = temp[0];
 
-            for (int i = 0; i < arrayToShift.length; i++) {
-                temp[i] = arrayToShift[(i + 1) % 26];
+            for (int i = 0; i < temp.length; i++) {
+                temp[i] = temp[(i + 1) % temp.length];
             }
             temp[25] = tempString;
         }
