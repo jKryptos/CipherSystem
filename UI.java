@@ -40,7 +40,7 @@ public class UI {
 
     public void mainMenu(){
         while(true){
-            Main.generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
+            generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
             System.out.println("1. Encrypt Text\n2. Decrypt Text\n3. Key Menu\n4. Alphabet Menu\n5. Message Menu\n0. Quit program");
 
             int userChoice = userInputInteger();
@@ -73,7 +73,7 @@ public class UI {
 
     public void keyMenu(){
         while(true){
-            Main.generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
+            generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
             System.out.println("1. Set key\n2. Erase key\n3. View key\n0. Main menu");
 
             int userChoice = userInputInteger();
@@ -103,7 +103,7 @@ public class UI {
 
     public void alphabetMenu(){
         while(true){
-            Main.generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
+            generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
             System.out.println("1. View alphabet\n2. Set array alphabets \n3. View array alphabets\n4. Generate alphabet arrays \n5. View alphabet arrays\n" +
                     "6. Reset alphabet arrays to default positions\n7. Erase array alphabets\n8. Erase alphabet arrays\n0. Return to main menu");
 
@@ -146,7 +146,7 @@ public class UI {
 
     public void alphabetArrayMenu(){
         while(true){
-            Main.generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
+            generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
             System.out.println("1. Enter array alphabet Zero\n2. Enter array alphabet One\n0. Return to previous menu");
 
             int userChoice = userInputInteger();
@@ -182,7 +182,7 @@ public class UI {
 
     public void messageMenu(){
         while(true){
-            Main.generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
+            generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
             System.out.println("1. Load message from file\n2. View plaintext\n3. View ciphertext\n4. View decrypted text\n5. Erase Plaintext\n6. Erase Ciphertext\n0. Return to main menu");
 
             int userChoice = userInputInteger();
@@ -218,6 +218,12 @@ public class UI {
                 default:
                     System.out.println("Invalid choice");
             }
+        }
+    }
+
+    public void generateNewLines(int amountOfNewLines){
+        for(int i = 0; i < amountOfNewLines; i++){
+            System.out.println();
         }
     }
 }

@@ -14,10 +14,4 @@ public class Main {
 
         userInterface.startUI();
     }
-
-    public static void generateNewLines(int amountOfNewLines){
-        for(int i = 0; i < amountOfNewLines; i++){
-            System.out.println();
-        }
-    }
 }
