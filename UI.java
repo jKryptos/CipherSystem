@@ -2,13 +2,14 @@ import java.util.Scanner;
 
 public class UI {
 
+    private final int AMOUNT_OF_NEW_LINES = 1;
+
     private final CipherMachine cipherMachine;
     private final Message message;
     private final Alphabet alphabet;
     private final Key key;
     private final Scanner scanner;
     private final IOHandler ioHandler;
-
 
     public UI(CipherMachine cipherMachine, Message message, Alphabet alphabet, Key key, Scanner scanner, IOHandler ioHandler){
         this.cipherMachine = cipherMachine;
@@ -25,7 +26,7 @@ public class UI {
 
     public int userInputInteger(){
         boolean validInput = false;
-        int userInput = Constants.DEFAULT_AMOUNT_ZERO;
+        int userInput = 0;
 
         do{
             try {
@@ -35,12 +36,13 @@ public class UI {
                 System.out.println("Invalid input, enter an integer.");
             }
         } while(!validInput);
+
         return userInput;
     }
 
     public void mainMenu(){
         while(true){
-            generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
+            generateNewLines(AMOUNT_OF_NEW_LINES);
             System.out.println("1. Encrypt Text\n2. Decrypt Text\n3. Key Menu\n4. Alphabet Menu\n5. Message Menu\n0. Quit program");
 
             int userChoice = userInputInteger();
@@ -73,7 +75,7 @@ public class UI {
 
     public void keyMenu(){
         while(true){
-            generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
+            generateNewLines(AMOUNT_OF_NEW_LINES);
             System.out.println("1. Set key\n2. Erase key\n3. View key\n0. Main menu");
 
             int userChoice = userInputInteger();
@@ -103,7 +105,7 @@ public class UI {
 
     public void alphabetMenu(){
         while(true){
-            generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
+            generateNewLines(AMOUNT_OF_NEW_LINES);
             System.out.println("1. View alphabet\n2. Set array alphabets \n3. View array alphabets\n4. Generate alphabet arrays \n5. View alphabet arrays\n" +
                     "6. Reset alphabet arrays to default positions\n7. Erase array alphabets\n8. Erase alphabet arrays\n0. Return to main menu");
 
@@ -146,7 +148,7 @@ public class UI {
 
     public void alphabetArrayMenu(){
         while(true){
-            generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
+            generateNewLines(AMOUNT_OF_NEW_LINES);
             System.out.println("1. Enter array alphabet Zero\n2. Enter array alphabet One\n0. Return to previous menu");
 
             int userChoice = userInputInteger();
@@ -182,7 +184,7 @@ public class UI {
 
     public void messageMenu(){
         while(true){
-            generateNewLines(Constants.AMOUNT_OF_NEW_LINES);
+            generateNewLines(AMOUNT_OF_NEW_LINES);
             System.out.println("1. Load message from file\n2. View plaintext\n3. View ciphertext\n4. View decrypted text\n5. Erase Plaintext\n6. Erase Ciphertext\n0. Return to main menu");
 
             int userChoice = userInputInteger();
