@@ -82,7 +82,7 @@ public class Alphabet {
         }
         return new String(alphabet);
     }
-    
+
     public static String[] arrayRightIndexShift(String[] arrayToShift, int shiftCount){
 
         int n = arrayToShift.length;
