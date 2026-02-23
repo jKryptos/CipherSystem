@@ -82,19 +82,25 @@ public class Alphabet {
         }
         return new String(alphabet);
     }
+    
+    public static String[] arrayRightIndexShift(String[] arrayToShift, int shiftCount){
 
-    public static String[] arrayIndexShift(String[] arrayToShift, int shiftCount) {
+        int n = arrayToShift.length;
+        shiftCount = shiftCount % n;
+        String[] temp = new String[n];
 
-        String[] temp;
-        temp = arrayToShift.clone();
+        for(int i = 0; i < n; i++){
+            temp[(i + shiftCount) % n] = arrayToShift[i];
+        }
+        return temp;
+    }
 
-        for (int j = 0; j < shiftCount; j++) {
-            String tempString = temp[0];
-
-            for (int i = 0; i < temp.length - 1; i++) {
-                temp[i] = temp[(i + 1)];
-            }
-            temp[temp.length - 1] = tempString;
+    public static String[] arrayLeftIndexShift(String[] arrayToShift, int shiftCount){
+        int n = arrayToShift.length;
+        shiftCount %= n;
+        String[] temp = new String[n];
+        for(int i = 0; i < n; i++){
+            temp[(i - shiftCount) % n] = arrayToShift[i];
         }
         return temp;
     }

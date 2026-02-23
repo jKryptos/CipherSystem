@@ -19,7 +19,7 @@ public class CipherMachine {
                 plainTextArray[i] = encryptChar;
                 zeroCount++;
                 if (zeroCount >= VALUE_TO_SHIFT_AT){
-                    alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
+                    alphaZero = Alphabet.arrayRightIndexShift(alphaZero, SHIFT_VALUE);
                 }
             } else if (binaryKeyArray[i] == '1' && plainTextArray[i] != ' ') {
                 zeroCount = 0;
@@ -28,7 +28,7 @@ public class CipherMachine {
                 plainTextArray[i] = encryptChar;
                 oneCount++;
                 if (oneCount >= VALUE_TO_SHIFT_AT){
-                    alphaOne = Alphabet.arrayIndexShift(alphaOne, SHIFT_VALUE);
+                    alphaOne = Alphabet.arrayRightIndexShift(alphaOne, SHIFT_VALUE);
                 }
             }
         }
@@ -58,7 +58,7 @@ public class CipherMachine {
                 cipherTextArray[i] = decryptedChar;
                 zeroCount++;
                 if (zeroCount >= VALUE_TO_SHIFT_AT){
-                    alphaZero = Alphabet.arrayIndexShift(alphaZero, SHIFT_VALUE);
+                    alphaZero = Alphabet.arrayRightIndexShift(alphaZero, SHIFT_VALUE);
                 }
             } else if (binaryKeyArray[i] == '1' && cipherTextArray[i] != ' ') {
                 zeroCount = 0;
@@ -67,7 +67,7 @@ public class CipherMachine {
                 cipherTextArray[i] = decryptedChar;
                 oneCount++;
                 if (oneCount >= VALUE_TO_SHIFT_AT){
-                    alphaOne = Alphabet.arrayIndexShift(alphaOne, SHIFT_VALUE);
+                    alphaOne = Alphabet.arrayRightIndexShift(alphaOne, SHIFT_VALUE);
                 }
             }
         }
