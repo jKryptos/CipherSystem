@@ -13,7 +13,8 @@ public class CipherMachine {
             if (plainTextArray[i] == ' '){
                 continue;
             }
-            if (keyChar(binaryKey, keyCount) == '0') {
+            char keyChar = keyChar(binaryKey,keyCount);
+            if (keyChar == '0') {
                 oneCount = 0;
                 int position = Alphabet.ALPHABET.indexOf(plainTextArray[i]);
                 plainTextArray[i] = getCharFromArray(alphaZero, position);
@@ -21,7 +22,7 @@ public class CipherMachine {
                 if (zeroCount >= VALUE_TO_SHIFT_AT){
                     alphaZero = Alphabet.arrayLeftIndexShift(alphaZero, SHIFT_VALUE);
                 }
-            } else if (keyChar(binaryKey, keyCount) == '1') {
+            } else if (keyChar == '1') {
                 zeroCount = 0;
                 int position = Alphabet.ALPHABET.indexOf(plainTextArray[i]);
                 plainTextArray[i] = getCharFromArray(alphaOne, position);
@@ -45,7 +46,8 @@ public class CipherMachine {
             if (cipherTextArray[i] == ' '){
                 continue;
             }
-            if (keyChar(binaryKey, keyCount) == '0') {
+            char keyChar = keyChar(binaryKey,keyCount);
+            if (keyChar == '0') {
                 oneCount = 0;
                 int position = alphaZero[0].indexOf(cipherTextArray[i]);
                 cipherTextArray[i] = retrieveDecryptedChar(position);
@@ -53,7 +55,7 @@ public class CipherMachine {
                 if (zeroCount >= VALUE_TO_SHIFT_AT){
                     alphaZero = Alphabet.arrayLeftIndexShift(alphaZero, SHIFT_VALUE);
                 }
-            } else if (keyChar(binaryKey, keyCount) == '1') {
+            } else if (keyChar == '1') {
                 zeroCount = 0;
                 int position = alphaOne[0].indexOf(cipherTextArray[i]);
                 cipherTextArray[i] = retrieveDecryptedChar(position);
