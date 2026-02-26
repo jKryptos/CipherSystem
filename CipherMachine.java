@@ -7,38 +7,42 @@ public class CipherMachine {
         char[] plainTextArray = plainText.toCharArray();
         int zeroCount = 0;
         int oneCount = 0;
-        while (binaryKey.length() < plainTextArray.length){
-            binaryKey += binaryKey;
-        }
-        char[] binaryKeyArray = binaryKey.toCharArray();
+        int keyCounter = 0;
+
         for (int i = 0; i < plainTextArray.length; i++) {
-            if (binaryKeyArray[i] == '0' && plainTextArray[i] != ' ') {
+
+            if (plainTextArray[i] == ' '){
+                continue;
+            }
+            char keyChar = binaryKey.charAt(keyCounter % binaryKey.length());
+
+            if (keyChar == '0') {
                 oneCount = 0;
                 int position = Alphabet.ALPHABET.indexOf(plainTextArray[i]);
-                char encryptChar = getCharFromArray(alphaZero, position, zeroCount);
+                char encryptChar = getCharFromArray(alphaZero, position);
                 plainTextArray[i] = encryptChar;
                 zeroCount++;
                 if (zeroCount >= VALUE_TO_SHIFT_AT){
-                    alphaZero = Alphabet.arrayRightIndexShift(alphaZero, SHIFT_VALUE);
+                    alphaZero = Alphabet.arrayLeftIndexShift(alphaZero, SHIFT_VALUE);
                 }
-            } else if (binaryKeyArray[i] == '1' && plainTextArray[i] != ' ') {
+            } else if (keyChar == '1') {
                 zeroCount = 0;
                 int position = Alphabet.ALPHABET.indexOf(plainTextArray[i]);
-                char encryptChar = getCharFromArray(alphaOne, position, oneCount);
+                char encryptChar = getCharFromArray(alphaOne, position);
                 plainTextArray[i] = encryptChar;
                 oneCount++;
                 if (oneCount >= VALUE_TO_SHIFT_AT){
-                    alphaOne = Alphabet.arrayRightIndexShift(alphaOne, SHIFT_VALUE);
+                    alphaOne = Alphabet.arrayLeftIndexShift(alphaOne, SHIFT_VALUE);
                 }
             }
+            keyCounter++;
         }
         return new String(plainTextArray);
     }
 
-    public char getCharFromArray(String[] alphabetArray, int position, int counter){
+    public char getCharFromArray(String[] alphabetArray, int position){
         char character = ' ';
-        character = alphabetArray[counter].charAt(position);
-
+        character = alphabetArray[0].charAt(position);
         return character;
     }
 
@@ -46,30 +50,34 @@ public class CipherMachine {
         char[] cipherTextArray = cipherText.toCharArray();
         int zeroCount = 0;
         int oneCount = 0;
-        while (binaryKey.length() < cipherTextArray.length) {
-            binaryKey += binaryKey;
-        }
-        char[] binaryKeyArray = binaryKey.toCharArray();
+        int keyCounter = 0;
+
         for (int i = 0; i < cipherTextArray.length; i++) {
-            if (binaryKeyArray[i] == '0' && cipherTextArray[i] != ' ') {
+            if (cipherTextArray[i] == ' '){
+                continue;
+            }
+            char keyChar = binaryKey.charAt(keyCounter % binaryKey.length());
+
+            if (keyChar == '0') {
                 oneCount = 0;
-                int position = alphaZero[zeroCount].indexOf(cipherTextArray[i]);
+                int position = alphaZero[0].indexOf(cipherTextArray[i]);
                 char decryptedChar = Alphabet.ALPHABET.charAt(position);
                 cipherTextArray[i] = decryptedChar;
                 zeroCount++;
                 if (zeroCount >= VALUE_TO_SHIFT_AT){
-                    alphaZero = Alphabet.arrayRightIndexShift(alphaZero, SHIFT_VALUE);
+                    alphaZero = Alphabet.arrayLeftIndexShift(alphaZero, SHIFT_VALUE);
                 }
-            } else if (binaryKeyArray[i] == '1' && cipherTextArray[i] != ' ') {
+            } else if (keyChar == '1') {
                 zeroCount = 0;
-                int position = alphaOne[oneCount].indexOf(cipherTextArray[i]);
+                int position = alphaOne[0].indexOf(cipherTextArray[i]);
                 char decryptedChar = Alphabet.ALPHABET.charAt(position);
                 cipherTextArray[i] = decryptedChar;
                 oneCount++;
                 if (oneCount >= VALUE_TO_SHIFT_AT){
-                    alphaOne = Alphabet.arrayRightIndexShift(alphaOne, SHIFT_VALUE);
+                    alphaOne = Alphabet.arrayLeftIndexShift(alphaOne, SHIFT_VALUE);
                 }
             }
+            keyCounter++;
         }
         return new String(cipherTextArray);
     }

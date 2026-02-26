@@ -96,11 +96,13 @@ public class Alphabet {
     }
 
     public static String[] arrayLeftIndexShift(String[] arrayToShift, int shiftCount){
+
         int n = arrayToShift.length;
         shiftCount %= n;
         String[] temp = new String[n];
+
         for(int i = 0; i < n; i++){
-            temp[(i - shiftCount) % n] = arrayToShift[i];
+            temp[(i - shiftCount + n )% n] = arrayToShift[i];
         }
         return temp;
     }
