@@ -210,7 +210,7 @@ public class UI {
                     System.out.println(message.printTextWithNewLines(message.getDecryptedText()));
                     break;
                 case 5:
-                    message.erasePlaintext();
+                    message.erasePlainText();
                     break;
                 case 6:
                     message.eraseCipherText();

@@ -54,7 +54,7 @@ public class Message {
         return newParagraph;
     }
 
-    public void erasePlaintext(){
+    public void erasePlainText(){
         this.plaintext = "";
     }
 
