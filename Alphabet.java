@@ -7,6 +7,7 @@ public class Alphabet {
     private String alphabetOne;
     private String[] alphaZeroArray;
     private String[] alphaOneArray;
+    Random rand = new Random();
 
     public Alphabet(){
 
@@ -70,11 +71,11 @@ public class Alphabet {
 
     public String scrambleAlphabet(String targetAlphabet){
 
-        Random rand = new Random();
         char[] alphabet = targetAlphabet.toCharArray();
 
-        for(int i = 0; i < alphabet.length; i++){
-            int j = rand.nextInt(alphabet.length);
+        for(int i = alphabet.length - 1; i > 0; i--){
+
+            int j = rand.nextInt(i + 1);
 
             char temp = alphabet[i];
             alphabet[i] = alphabet[j];
