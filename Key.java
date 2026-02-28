@@ -8,6 +8,7 @@ public class Key {
     }
     public void setKey(String key){
         this.keyWord = key;
+        this.binaryKey = stringToBinaryCode(key);
     }
     public String getKey(){
         return this.keyWord;

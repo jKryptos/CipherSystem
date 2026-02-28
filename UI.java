@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class UI {
 
-    private final int AMOUNT_OF_NEW_LINES = 1;
-
     private final CipherMachine cipherMachine;
     private final Message message;
     private final Alphabet alphabet;
@@ -42,18 +40,18 @@ public class UI {
 
     public void mainMenu(){
         while(true){
-            generateNewLines(AMOUNT_OF_NEW_LINES);
+            generateNewLines(1);
             System.out.println("1. Encrypt Text\n2. Decrypt Text\n3. Key Menu\n4. Alphabet Menu\n5. Message Menu\n0. Quit program");
 
             int userChoice = userInputInteger();
 
             switch (userChoice){
                 case 1:
-                    message.setCiphertext(cipherMachine.encryptText(message.getPlaintext(), key.getBinaryKey(), alphabet.getAlphaZeroArray(), alphabet.getAlphaOneArray()));
+                    message.setCiphertext(cipherMachine.encryptText());
                     System.out.println("Message encrypted");
                     break;
                 case 2:
-                    message.setDecryptedText(cipherMachine.decryptText(message.getCiphertext(), key.getBinaryKey(), alphabet.getAlphaZeroArray(), alphabet.getAlphaOneArray()));
+                    message.setDecryptedText(cipherMachine.decryptText());
                     System.out.println("Message decrypted");
                     break;
                 case 3:
@@ -75,7 +73,7 @@ public class UI {
 
     public void keyMenu(){
         while(true){
-            generateNewLines(AMOUNT_OF_NEW_LINES);
+            generateNewLines(1);
             System.out.println("1. Set key\n2. Erase key\n3. View key\n0. Main menu");
 
             int userChoice = userInputInteger();
@@ -85,7 +83,6 @@ public class UI {
                     System.out.println("Enter keyword: ");
                     String keyword = scanner.nextLine();
                     key.setKey(keyword);
-                    key.setBinaryKey(key.stringToBinaryCode(key.getKey()));
                     break;
                 case 2:
                     key.eraseKey();
@@ -105,7 +102,7 @@ public class UI {
 
     public void alphabetMenu(){
         while(true){
-            generateNewLines(AMOUNT_OF_NEW_LINES);
+            generateNewLines(1);
             System.out.println("1. View alphabet\n2. Set array alphabets \n3. View array alphabets\n4. Generate alphabet arrays \n5. View alphabet arrays\n" +
                     "6. Reset alphabet arrays to default positions\n7. Erase array alphabets\n8. Erase alphabet arrays\n0. Return to main menu");
 
@@ -148,7 +145,7 @@ public class UI {
 
     public void alphabetArrayMenu(){
         while(true){
-            generateNewLines(AMOUNT_OF_NEW_LINES);
+            generateNewLines(1);
             System.out.println("1. Enter array alphabet Zero\n2. Enter array alphabet One\n0. Return to previous menu");
 
             int userChoice = userInputInteger();
@@ -184,7 +181,7 @@ public class UI {
 
     public void messageMenu(){
         while(true){
-            generateNewLines(AMOUNT_OF_NEW_LINES);
+            generateNewLines(1);
             System.out.println("1. Load message from file\n2. View plaintext\n3. View ciphertext\n4. View decrypted text\n5. Erase Plaintext\n6. Erase Ciphertext\n0. Return to main menu");
 
             int userChoice = userInputInteger();
@@ -201,13 +198,13 @@ public class UI {
                     }
                     break;
                 case 2:
-                    System.out.println(message.printTextWithNewLines(message.getPlaintext()));
+                    System.out.println(message.formatText(message.getPlaintext()));
                     break;
                 case 3:
-                    System.out.println(message.printTextWithNewLines(message.getCiphertext()));
+                    System.out.println(message.formatText(message.getCiphertext()));
                     break;
                 case 4:
-                    System.out.println(message.printTextWithNewLines(message.getDecryptedText()));
+                    System.out.println(message.formatText(message.getDecryptedText()));
                     break;
                 case 5:
                     message.erasePlainText();

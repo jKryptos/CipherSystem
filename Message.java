@@ -36,7 +36,7 @@ public class Message {
         return this.decryptedText;
     }
 
-    public StringBuilder printTextWithNewLines(String textToFormat){
+    public StringBuilder formatText(String textToFormat){
         String[] wordsInText = textToFormat.trim().split("\\s+");
         StringBuilder newParagraph = new StringBuilder();
         int wordCount = 0;
@@ -60,5 +60,9 @@ public class Message {
 
     public void eraseCipherText(){
         this.ciphertext = "";
+    }
+
+    public void eraseDecryptedText(){
+        this.decryptedText = "";
     }
 }
