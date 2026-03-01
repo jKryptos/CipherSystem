@@ -87,7 +87,7 @@ public class Alphabet {
     public static String[] arrayRightIndexShift(String[] arrayToShift, int shiftCount){
 
         int n = arrayToShift.length;
-        shiftCount = shiftCount % n;
+        shiftCount %= n;
         String[] temp = new String[n];
 
         for(int i = 0; i < n; i++){
@@ -129,6 +129,16 @@ public class Alphabet {
                 System.out.println(i + " " + one[i]);
             }
         }
+    }
+
+    public static String[] createTabulaRecta(String alphabet){
+        String[] tabulaRecta = new String[alphabet.length()];
+
+        for (int i = 0; i < alphabet.length(); i++){
+            i = i % alphabet.length();
+            tabulaRecta[i] = alphabet.substring(i) + alphabet.substring(0, i);
+        }
+        return tabulaRecta;
     }
 }
 
