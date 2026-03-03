@@ -3,19 +3,13 @@ import java.util.Scanner;
 public class UI {
 
     private final CipherMachine cipherMachine;
-    private final Message message;
-    private final Alphabet alphabet;
-    private final AlphabetService alphabetService;
-    private final Key key;
+    private final UserContext userContext;
     private final Scanner scanner;
     private final IOHandler ioHandler;
 
-    public UI(CipherMachine cipherMachine, Message message,Alphabet alphabet, AlphabetService alphabetService, Key key, Scanner scanner, IOHandler ioHandler){
+    public UI(CipherMachine cipherMachine, UserContext userContext, Scanner scanner, IOHandler ioHandler){
         this.cipherMachine = cipherMachine;
-        this.message = message;
-        this.alphabet = alphabet;
-        this.alphabetService = alphabetService;
-        this.key = key;
+        this.userContext = userContext;
         this.scanner = scanner;
         this.ioHandler = ioHandler;
     }
@@ -49,11 +43,11 @@ public class UI {
 
             switch (userChoice){
                 case 1:
-                    message.setCiphertext(cipherMachine.encryptText());
+                    userContext.message.setCiphertext(cipherMachine.encryptText());
                     System.out.println("Message encrypted");
                     break;
                 case 2:
-                    message.setDecryptedText(cipherMachine.decryptText());
+                    userContext.message.setDecryptedText(cipherMachine.decryptText());
                     System.out.println("Message decrypted");
                     break;
                 case 3:
@@ -84,15 +78,15 @@ public class UI {
                 case 1:
                     System.out.println("Enter keyword: ");
                     String keyword = scanner.nextLine();
-                    key.setKey(keyword);
+                    userContext.key.setKey(keyword);
                     break;
                 case 2:
-                    key.eraseKey();
+                    userContext.key.eraseKey();
                     System.out.println("Key has been erased.");
                     break;
                 case 3:
-                    System.out.println("The current key is: " + key.getKey());
-                    System.out.println("The binary key is: " + key.getBinaryKey());
+                    System.out.println("The current key is: " + userContext.key.getKey());
+                    System.out.println("The binary key is: " + userContext.key.getBinaryKey());
                     break;
                 case 0:
                     return;
@@ -118,25 +112,25 @@ public class UI {
                     alphabetArrayMenu();
                     break;
                 case 3:
-                    System.out.println("AlphabetZERO: " + alphabet.getAlphabetZero() + "\nAlphabetONE: " + alphabet.getAlphabetOne());
+                    System.out.println("AlphabetZERO: " + userContext.alphabet.getAlphabetZero() + "\nAlphabetONE: " + userContext.alphabet.getAlphabetOne());
                     break;
                 case 4:
-                    alphabetService.alphabetZeroArraySetup();
-                    alphabetService.alphabetOneArraySetup();
+                    userContext.alphabetService.alphabetZeroArraySetup();
+                    userContext.alphabetService.alphabetOneArraySetup();
                     break;
                 case 5:
-                    alphabet.printAlphabetArrays();
+                    userContext.alphabet.printAlphabetArrays();
                     break;
                 case 6:
-                    alphabet.setAlphaZeroArray(alphabetService.createTabulaRecta(Alphabet.REVERSE_ALPHABET));
-                    alphabet.setAlphaOneArray(alphabetService.createTabulaRecta(Alphabet.ALPHABET));
+                    userContext.alphabet.setAlphaZeroArray(userContext.alphabetService.createTabulaRecta(Alphabet.REVERSE_ALPHABET));
+                    userContext.alphabet.setAlphaOneArray(userContext.alphabetService.createTabulaRecta(Alphabet.ALPHABET));
                     break;
                 case 7:
-                    alphabet.setAlphabetZero("");
-                    alphabet.setAlphabetOne("");
+                    userContext.alphabet.setAlphabetZero("");
+                    userContext.alphabet.setAlphabetOne("");
                     break;
                 case 8:
-                    alphabetService.clearAlphabetArrays();
+                    userContext.alphabetService.clearAlphabetArrays();
                     break;
                 case 0:
                     return;
@@ -160,7 +154,7 @@ public class UI {
                         if (alphabetZero.length() != 26){
                             System.out.println("Not long enough");
                         } else {
-                            alphabet.setAlphabetZero(alphabetZero);
+                            userContext.alphabet.setAlphabetZero(alphabetZero);
                             break;
                         }
                         break;
@@ -170,7 +164,7 @@ public class UI {
                         if (alphabetOne.length() != 26){
                             System.out.println("Not long enough");
                         } else {
-                            alphabet.setAlphabetOne(alphabetOne);
+                            userContext.alphabet.setAlphabetOne(alphabetOne);
                             break;
                         }
                     break;
@@ -197,23 +191,23 @@ public class UI {
                     if (incomingFile == null){
                         System.out.println("File not found, plaintext is empty.");
                     } else {
-                        message.setPlaintext(ioHandler.incomingTextFile(userInput));
+                        userContext.message.setPlaintext(ioHandler.incomingTextFile(userInput));
                     }
                     break;
                 case 2:
-                    System.out.println(message.formatText(message.getPlaintext()));
+                    System.out.println(userContext.message.formatText(userContext.message.getPlaintext()));
                     break;
                 case 3:
-                    System.out.println(message.formatText(message.getCiphertext()));
+                    System.out.println(userContext.message.formatText(userContext.message.getCiphertext()));
                     break;
                 case 4:
-                    System.out.println(message.formatText(message.getDecryptedText()));
+                    System.out.println(userContext.message.formatText(userContext.message.getDecryptedText()));
                     break;
                 case 5:
-                    message.erasePlainText();
+                    userContext.message.erasePlainText();
                     break;
                 case 6:
-                    message.eraseCipherText();
+                    userContext.message.eraseCipherText();
                     break;
                 case 0:
                     return;
