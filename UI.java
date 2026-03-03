@@ -5,14 +5,16 @@ public class UI {
     private final CipherMachine cipherMachine;
     private final Message message;
     private final Alphabet alphabet;
+    private final AlphabetService alphabetService;
     private final Key key;
     private final Scanner scanner;
     private final IOHandler ioHandler;
 
-    public UI(CipherMachine cipherMachine, Message message, Alphabet alphabet, Key key, Scanner scanner, IOHandler ioHandler){
+    public UI(CipherMachine cipherMachine, Message message,Alphabet alphabet, AlphabetService alphabetService, Key key, Scanner scanner, IOHandler ioHandler){
         this.cipherMachine = cipherMachine;
         this.message = message;
         this.alphabet = alphabet;
+        this.alphabetService = alphabetService;
         this.key = key;
         this.scanner = scanner;
         this.ioHandler = ioHandler;
@@ -104,7 +106,7 @@ public class UI {
         while(true){
             generateNewLines(1);
             System.out.println("1. View alphabet\n2. Set array alphabets \n3. View array alphabets\n4. Generate alphabet arrays \n5. View alphabet arrays\n" +
-                    "6. Reset alphabet arrays to default positions\n7. Erase array alphabets\n8. Erase alphabet arrays\n0. Return to main menu");
+                    "6. Generate Tabula Recta and Reverse Tabula Recta\n7. Erase array alphabets\n8. Erase alphabet arrays\n0. Return to main menu");
 
             int userChoice = userInputInteger();
 
@@ -119,21 +121,22 @@ public class UI {
                     System.out.println("AlphabetZERO: " + alphabet.getAlphabetZero() + "\nAlphabetONE: " + alphabet.getAlphabetOne());
                     break;
                 case 4:
-                    alphabet.setAlphaZeroArray(alphabet.alphabetZeroArraySetup());
-                    alphabet.setAlphaOneArray(alphabet.alphabetOneArraySetup());
+                    alphabetService.alphabetZeroArraySetup();
+                    alphabetService.alphabetOneArraySetup();
                     break;
                 case 5:
                     alphabet.printAlphabetArrays();
                     break;
                 case 6:
-                    System.out.println("Currently not implemented");
+                    alphabet.setAlphaZeroArray(alphabetService.createTabulaRecta(Alphabet.REVERSE_ALPHABET));
+                    alphabet.setAlphaOneArray(alphabetService.createTabulaRecta(Alphabet.ALPHABET));
                     break;
                 case 7:
                     alphabet.setAlphabetZero("");
                     alphabet.setAlphabetOne("");
                     break;
                 case 8:
-                    alphabet.nullAlphabetArrays();
+                    alphabetService.clearAlphabetArrays();
                     break;
                 case 0:
                     return;

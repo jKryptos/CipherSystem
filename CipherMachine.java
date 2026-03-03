@@ -2,15 +2,17 @@ public class CipherMachine {
 
     private final Message message;
     private final Alphabet alphabet;
+    private final AlphabetService alphabetService;
     private final Key key;
 
     static final int VALUE_TO_SHIFT_AT = 1; //The number of consecutive keybits, after the first, required for a shift.
     static final int SHIFT_VALUE = 7; //The number of positions the chosen alphabet array will shift
 
-    public CipherMachine(Message message, Key key, Alphabet alphabet){
+    public CipherMachine(Message message, Key key, Alphabet alphabet, AlphabetService alphabetService){
         this.message = message;
         this.key = key;
         this.alphabet = alphabet;
+        this.alphabetService = alphabetService;
     }
 
     public String encryptText(){
@@ -33,7 +35,7 @@ public class CipherMachine {
                 // Shift AFTER a letter has been substituted
                 zeroCount++;
                 if (zeroCount >= VALUE_TO_SHIFT_AT){
-                    alphaZero = Alphabet.arrayLeftIndexShift(alphaZero, SHIFT_VALUE);
+                    alphaZero = alphabetService.arrayLeftIndexShift(alphaZero, SHIFT_VALUE);
                 }
             } else if (keyChar == '1') {
                 zeroCount = 0;
@@ -42,7 +44,7 @@ public class CipherMachine {
                 // Shift AFTER a letter has been substituted
                 oneCount++;
                 if (oneCount >= VALUE_TO_SHIFT_AT){
-                    alphaOne = Alphabet.arrayLeftIndexShift(alphaOne, SHIFT_VALUE);
+                    alphaOne = alphabetService.arrayLeftIndexShift(alphaOne, SHIFT_VALUE);
                 }
             }
             keyCount++;
@@ -70,7 +72,7 @@ public class CipherMachine {
                 // Shift AFTER a letter has been substituted
                 zeroCount++;
                 if (zeroCount >= VALUE_TO_SHIFT_AT){
-                    alphaZero = Alphabet.arrayLeftIndexShift(alphaZero, SHIFT_VALUE);
+                    alphaZero = alphabetService.arrayLeftIndexShift(alphaZero, SHIFT_VALUE);
                 }
             } else if (keyChar == '1') {
                 zeroCount = 0;
@@ -79,7 +81,7 @@ public class CipherMachine {
                 // Shift AFTER a letter has been substituted
                 oneCount++;
                 if (oneCount >= VALUE_TO_SHIFT_AT){
-                    alphaOne = Alphabet.arrayLeftIndexShift(alphaOne, SHIFT_VALUE);
+                    alphaOne = alphabetService.arrayLeftIndexShift(alphaOne, SHIFT_VALUE);
                 }
             }
             keyCount++;
